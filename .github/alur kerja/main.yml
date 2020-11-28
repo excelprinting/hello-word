@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.- nama: Siapkan .NET Core SDK
+  penggunaan: actions/setup-dotnet@v1.7.2
+  dengan:
+    # Versi SDK untuk digunakan. Contoh: 2.2.104, 3.1, 3.1.x
+    dotnet-version: # opsional
+    # Sumber paket opsional untuk menyiapkan otentikasi. Akan berkonsultasi dengan NuGet.config yang ada di root repo dan menyediakan NuGet.config sementara menggunakan variabel lingkungan NUGET_AUTH_TOKEN sebagai ClearTextPassword
+    source-url: # opsional
+    # PEMILIK opsional untuk menggunakan paket dari organisasi / pengguna Registri Paket GitHub selain pemilik repositori saat ini. Hanya digunakan jika URL GPR juga disediakan di url sumber
+    pemilik: # opsional
+    # Lokasi opsional NuGet.config, jika NuGet.config Anda tidak terletak di root repo.
+    config-file: # opsional
